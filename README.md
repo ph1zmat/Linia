@@ -1,4 +1,4 @@
-# Измеритель параметров полупроводниковых приборов
+# Измеритель параметров полупроводниковых приборов | Сборка ARM64
 
 ** Tools
 
@@ -14,12 +14,12 @@ ARM64 (Orange Pi 5 Plus):
 	gcc version 13.3.0
 	Архитектура: aarch64
 
-*** Сборка под Linux x86_64.
+*** Сборка под Orange Pi 5 Plus (ARM64).
 
 1. Установить Linux.
 
 2. Зайти под root :
-    sudo su
+    sudo su - root
 
 3. Обновиться :
     apt-get update
@@ -30,33 +30,7 @@ ARM64 (Orange Pi 5 Plus):
 	apt install mc
 
 5. Клонировать репозиторий :
-    git clone github.com/Sasha7b9Work/Linia
-
-6. Установить инструменты сборки:
-   cd Linia/sources/scripts/cb_lin
-   ./install_soft.sh
-
-7. Установить зависимости для wxWidgets :
-   cd ../../ThirdParty/linux
-   ./install_software.sh
-
-8. Собрать wxWidgets :
-  ./full_build.sh
-
-9. Собрать проект :
-    cd ../../scripts/cb_lin
-	./full_build.sh
-
-10. Скопировать файл files/CIC.loc в каталог sources/genereated/Linia2
-
-11. Запустить файл sources/generated/Linia2/Linia2 :
-    ./Linia2
-
-*** Сборка для Orange Pi 5 Plus (ARM64).
-
-ВНИМАНИЕ: Для ARM64 архитектуры используйте специальные скрипты!
-
-1-5. Выполнить шаги 1-5 из инструкции для Linux x86_64
+    git clone https://github.com/ph1zmat/Linia.git
 
 6. Установить зависимости для ARM64:
    cd Linia/sources/scripts/orange_pi
@@ -75,13 +49,8 @@ ARM64 (Orange Pi 5 Plus):
    chmod +x fix_build_arm64.sh
    ./fix_build_arm64.sh
 
-8. Запустить приложение:
+8. Скопировать файл files/CIC.loc в каталог sources/genereated/Linia2
+
+9. Запустить приложение:
    cd ../../generated/Linia2
    ./Linia2
-
-*** Особенности ARM64 сборки:
-
-- Автоматическое определение архитектуры aarch64
-- Поиск библиотек в /usr/lib/aarch64-linux-gnu/
-- Оптимизация для ARM Cortex-A76 (флаг -march=armv8-a)
-- Совместимость с KDE Neon Plasma на Orange Pi 5 Plus
